@@ -30,16 +30,6 @@ d3.chart.table = function() {
     var rows = table.selectAll('tr.row')
       .data(data, function(d) { return d.id; })
 
-    function killDeathRatio(kills, deaths) {
-      deaths = deaths == 0 ? 1 : deaths;
-      return (kills / deaths).toFixed(2);
-    }
-
-    function killAssistDeathRatio(kills, assists, deaths) {
-      deaths = deaths == 0 ? 1 : deaths;
-      return ((kills + assists) / deaths).toFixed(2);
-    }
-
     var rowsEnter = rows.enter().append('tr').classed('row', true);
 
     rowsEnter.append('td').text(function(d) { return d.class; })

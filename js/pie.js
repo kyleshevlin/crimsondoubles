@@ -19,7 +19,7 @@ d3.chart.pie = function() {
     var pie = g.append('g').classed('pie', true);
     var layout = d3.layout.pie()
       .value(function(d) { return d.value });
-    var colorScale = d3.scale.category10();
+    var colorScale = d3.scale.category20();
     var outerRadius = width / 2;
     var innerRadius = 0;
 

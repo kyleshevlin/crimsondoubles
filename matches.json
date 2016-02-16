@@ -389,6 +389,116 @@
       "assists": 1,
       "deaths": 5,
       "score": 3
+    },
+    {
+      "id": 40,
+      "class": "Titan",
+      "map": "The Anomaly",
+      "partner": "unoudid",
+      "kills": 3,
+      "assists": 0,
+      "deaths": 7,
+      "score": 1
+    },
+    {
+      "id": 41,
+      "class": "Titan",
+      "map": "The Cauldron",
+      "partner": "unoudid",
+      "kills": 4,
+      "assists": 2,
+      "deaths": 7,
+      "score": 3
+    },
+    {
+      "id": 42,
+      "class": "Titan",
+      "map": "The Anomaly",
+      "partner": "unoudid",
+      "kills": 7,
+      "assists": 1,
+      "deaths": 7,
+      "score": 5
+    },
+    {
+      "id": 43,
+      "class": "Titan",
+      "map": "The Burning Shrine",
+      "partner": "unoudid",
+      "kills": 13,
+      "assists": 1,
+      "deaths": 8,
+      "score": 4
+    },
+    {
+      "id": 44,
+      "class": "Titan",
+      "map": "The Burning Shrine",
+      "partner": "unoudid",
+      "kills": 7,
+      "assists": 3,
+      "deaths": 8,
+      "score": 3
+    },
+    {
+      "id": 45,
+      "class": "Warlock",
+      "map": "The Timekeeper",
+      "partner": "unoudid",
+      "kills": 9,
+      "assists": 2,
+      "deaths": 7,
+      "score": 5
+    },
+    {
+      "id": 46,
+      "class": "Warlock",
+      "map": "Bannerfall",
+      "partner": "unoudid",
+      "kills": 9,
+      "assists": 1,
+      "deaths": 1,
+      "score": 5
+    },
+    {
+      "id": 47,
+      "class": "Warlock",
+      "map": "The Drifter",
+      "partner": "unoudid",
+      "kills": 4,
+      "assists": 0,
+      "deaths": 1,
+      "score": 5
+    },
+    {
+      "id": 48,
+      "class": "Warlock",
+      "map": "Black Shield",
+      "partner": "unoudid",
+      "kills": 7,
+      "assists": 0,
+      "deaths": 9,
+      "score": 4
+    },
+    {
+      "id": 49,
+      "class": "Warlock",
+      "map": "Pantheon",
+      "partner": "unoudid",
+      "kills": 6,
+      "assists": 2,
+      "deaths": 8,
+      "score": 5
+    },
+    {
+      "id": 50,
+      "class": "Warlock",
+      "map": "Exodus Blue",
+      "partner": "unoudid",
+      "kills": 10,
+      "assists": 2,
+      "deaths": 6,
+      "score": 5
     }
   ]
 }

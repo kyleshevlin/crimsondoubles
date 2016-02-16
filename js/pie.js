@@ -5,8 +5,15 @@ if (!d3.chart) {
 d3.chart.pie = function() {
   var g,
       data,
-      width = 300,
-      height = width;
+      svg,
+      pie,
+      margin = { top: 20, right: 20, bottom: 20, left: 20 },
+      width = 500 - margin.left - margin.right,
+      height = width,
+      outerRadius = width / 2,
+      innerRadius = width / 4,
+      legendRectSize = 18,
+      legendSpacing = 6;
 
   function chart(container) {
     g = container;
@@ -16,12 +23,17 @@ d3.chart.pie = function() {
   chart.update = update;
 
   function update() {
-    var pie = g.append('g').classed('pie', true);
+    var svg = g.append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+
+    pie = svg.append('g').classed('pie', true)
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
     var layout = d3.layout.pie()
       .value(function(d) { return d.value });
+
     var colorScale = d3.scale.category20();
-    var outerRadius = width / 2;
-    var innerRadius = 0;
 
     var arc = d3.svg.arc()
       .innerRadius(innerRadius)
@@ -29,7 +41,7 @@ d3.chart.pie = function() {
 
     // Set up groups
     var arcs = pie.selectAll("g.arc")
-      .data( layout(data) )
+      .data(layout(data))
       .enter()
       .append("g").classed('arc', true)
       .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
@@ -37,11 +49,8 @@ d3.chart.pie = function() {
     // Draw arc paths
     arcs
       .append("path")
-      .attr("fill", function(d, i) {
-        return colorScale(i);
-      })
+      .attr("fill", function(d,i) { return colorScale(i); })
       .attr("d", arc)
-      .transition()
 
     // Labels
     arcs
@@ -51,8 +60,28 @@ d3.chart.pie = function() {
       })
       .attr("text-anchor", "middle")
       .text(function(d, i) {
-        return data[i].label + ': ' + d.value;
+        return d.value;
       });
+
+    var legend = svg.selectAll('.legend')
+      .data(colorScale.domain())
+      .enter()
+      .append('g').classed('legend', true)
+      .attr('transform', function(d,i) {
+        var offset = legendRectSize + legendSpacing;
+        return 'translate(0,' + offset * i + ')';
+      })
+
+    legend.append('rect')
+      .attr('width', legendRectSize)
+      .attr('height', legendRectSize)
+      .style('fill', colorScale)
+      .style('stroke', colorScale)
+
+    legend.append('text')
+      .attr('x', legendRectSize + legendSpacing)
+      .attr('y', legendRectSize - legendSpacing)
+      .text(function(d,i) { return data[i].label; })
   }
 
   chart.data = function(value) {
@@ -70,6 +99,18 @@ d3.chart.pie = function() {
   chart.height = function(value) {
     if (!arguments.length) return height;
     height = value;
+    return chart;
+  }
+
+  chart.outerRadius = function(value) {
+    if (!arguments.length) return outerRadius;
+    outerRadius = value;
+    return chart;
+  }
+
+  chart.innerRadius = function(value) {
+    if (!arguments.length) return innerRadius;
+    innerRadius = value;
     return chart;
   }
 

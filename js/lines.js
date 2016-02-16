@@ -4,25 +4,33 @@ if (!d3.chart) {
 
 d3.chart.lines = function() {
   var g,
+      svg,
+      graph,
       data,
       xExtent,
       yExtent,
-      width = 400,
-      height = width * (9/16);
+      margin = { top: 30, right: 30, bottom: 30, left: 30 },
+      width = 750 - margin.right - margin.left,
+      height = (width * (9/16)) - margin.top - margin.bottom;
 
   function chart(container) {
     g = container;
-    g.append('g').classed('lines-x_axis', true)
-    .attr('transform', 'translate(0, ' + height +')');
-    g.append('g').classed('lines-y_axis', true);
+    svg = g.append('svg')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+
+    graph = svg.append('g').classed('graph', true)
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+    graph.append('g').classed('lines-x_axis', true)
+      .attr('transform', 'translate(0, ' + height + ')')
+    graph.append('g').classed('lines-y_axis', true)
     update();
   }
 
   chart.update = update;
 
   function update() {
-    var graph = g.append('g').classed('graph', true)
-
     var xScale = d3.scale.linear()
       .domain(xExtent)
       .range([0, width])

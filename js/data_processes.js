@@ -181,3 +181,17 @@ function _killAssistDeathRatio(data) {
   });
   return kADRatios;
 }
+
+// Score
+function _scores(data) {
+  var scores = [];
+
+  data.forEach(function(d) {
+    scores.push({
+      x: d.id,
+      y: d.score
+    });
+  });
+
+  return scores;
+}

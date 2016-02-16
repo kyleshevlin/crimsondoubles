@@ -7,11 +7,14 @@ d3.chart.pie = function() {
       data,
       svg,
       pie,
+      title = '',
       margin = { top: 20, right: 20, bottom: 20, left: 20 },
       width = 500 - margin.left - margin.right,
-      height = width,
-      outerRadius = width / 2,
-      innerRadius = width / 4,
+      height = (width * 9/16),
+      pieWidth = height,
+      pieHeight = height,
+      outerRadius = pieWidth / 2,
+      innerRadius = pieWidth / 4,
       legendRectSize = 18,
       legendSpacing = 6;
 
@@ -28,7 +31,11 @@ d3.chart.pie = function() {
         .attr('height', height + margin.top + margin.bottom)
 
     pie = svg.append('g').classed('pie', true)
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+      .attr({
+        width: pieWidth,
+        height: pieHeight,
+        transform: 'translate(' + margin.left + ',' + margin.top + ')'
+      })
 
     var layout = d3.layout.pie()
       .value(function(d) { return d.value });
@@ -69,7 +76,7 @@ d3.chart.pie = function() {
       .append('g').classed('legend', true)
       .attr('transform', function(d,i) {
         var offset = legendRectSize + legendSpacing;
-        return 'translate(0,' + offset * i + ')';
+        return 'translate(' + (pieWidth + margin.left + margin.right) + ',' + ((offset * i) + margin.top) + ')';
       })
 
     legend.append('rect')
@@ -80,13 +87,28 @@ d3.chart.pie = function() {
 
     legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
-      .attr('y', legendRectSize - legendSpacing)
+      .attr('y', legendRectSize - (legendSpacing / 2))
       .text(function(d,i) { return data[i].label; })
+
+    var titleText = svg.append('text').classed('title', true)
+    titleText
+      .attr({
+        x: (pieWidth + margin.left + margin.right) / 2,
+        y: (pieHeight + margin.top + margin.bottom) / 2,
+        'text-anchor': 'middle'
+      })
+      .text(title)
   }
 
   chart.data = function(value) {
     if (!arguments.length) return data;
     data = value;
+    return chart;
+  }
+
+  chart.title = function(value) {
+    if (!arguments.length) return title;
+    title = value;
     return chart;
   }
 

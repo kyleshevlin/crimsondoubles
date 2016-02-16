@@ -12,24 +12,28 @@ d3.json('matches.json', function(err, matches) {
   var winsLossesGroup = display.append('div').classed('pie-wrap win_loss_pie-group', true);
   var winsLossesPie = d3.chart.pie()
     .data(_winsLosses(data))
+    .title('Wins & Losses')
   winsLossesPie(winsLossesGroup);
 
   // Matches Per Class Pie Chart
   var matchesPerClassGroup = display.append('div').classed('pie-wrap matches_per_class_pie-group', true)
   var matchesPerClassPie = d3.chart.pie()
     .data(_matchesPerClass(data))
+    .title('Matches/Class')
   matchesPerClassPie(matchesPerClassGroup);
 
   // Matches Per Partner Pie Chart
   var matchesPerPartnerGroup = display.append('div').classed('pie-wrap matches_per_partner_pie-group', true);
   var matchesPerPartnerPie = d3.chart.pie()
     .data(_matchesPerPartner(data))
+    .title('Matches/Partner')
   matchesPerPartnerPie(matchesPerPartnerGroup);
 
-  // Mathces Per Map Pie chart
+  // Matches Per Map Pie chart
   var matchesPerMapGroup = display.append('div').classed('pie-wrap matches_per_map_pie-group', true);
   var matchesPerMapPie = d3.chart.pie()
     .data(_matchesPerMap(data))
+    .title('Matches/Map')
   matchesPerMapPie(matchesPerMapGroup);
 
   // Kills Line Chart

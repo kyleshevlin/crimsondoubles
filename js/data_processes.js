@@ -173,12 +173,14 @@ function _killDeathRatio(data) {
 // Kill+Assist/Death Ratios
 function _killAssistDeathRatio(data) {
   var kADRatios = [];
+
   data.forEach(function(d) {
     kADRatios.push({
       x: d.id,
       y: killAssistDeathRatio(d.kills, d.assists, d.deaths)
     });
   });
+
   return kADRatios;
 }
 

@@ -18,5 +18,5 @@ function killAssistDeathRatio(kills, assists, deaths) {
 // Kill/Game Ratio
 function killGameRatio(kills, games) {
   games = games == 0 ? 1 : games;
-  return parseFloat((kills / games).toFixes(2));
+  return parseFloat((kills / games).toFixed(2));
 }

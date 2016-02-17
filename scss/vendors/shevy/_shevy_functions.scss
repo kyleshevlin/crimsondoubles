@@ -1,0 +1,22 @@
+//////////////////////////////
+// Shevy Functions
+//////////////////////////////
+
+// Get font size from the font-scale
+@function get-font-scale-value($iterator, $a-map: $shevy) {
+  @return nth(map-get($a-map, 'base-font-scale'), $iterator);
+}
+
+// Base Unit Multiplier
+// Creates a 1(base-unit) to use for multiplying
+@function base-unit-multiplier($unit) {
+  @if $unit == 'px' {
+    @return 1px;
+  } @else if $unit == 'em' {
+    @return 1em;
+  } @else if $unit == 'rem' {
+    @return 1rem;
+  } @else {
+    @warn "Sorry, but that's an unsupported unit of measure.";
+  }
+}

@@ -4,22 +4,13 @@ if (!d3.chart) {
 
 d3.chart.table = function() {
   var div,
-      data;
+      data,
+      columns = [],
+      dataFunctions = {};
 
   function chart(container) {
     div = container;
     var table = container.append('table');
-    var thead = table.append('thead').append('tr');
-    thead.append('th').text('Class')
-    thead.append('th').text('Map')
-    thead.append('th').text('Partner')
-    thead.append('th').text('Kills')
-    thead.append('th').text('Assists')
-    thead.append('th').text('K/D')
-    thead.append('th').text('Ka/D')
-    thead.append('th').text('W/L')
-    thead.append('th').text('Score')
-
     update();
   }
 
@@ -27,29 +18,37 @@ d3.chart.table = function() {
 
   function update() {
     var table = div.select('table');
+
+    var thead = table.append('thead').append('tr');
+    columns.forEach(function(column) {
+      thead.append('th').text(column);
+    });
+
     var rows = table.selectAll('tr.row')
       .data(data, function(d) { return d.id; })
 
     var rowsEnter = rows.enter().append('tr').classed('row', true);
 
-    rowsEnter.append('td').text(function(d) { return d.class; })
-    rowsEnter.append('td').text(function(d) { return d.map; })
-    rowsEnter.append('td').text(function(d) { return d.partner; })
-    rowsEnter.append('td').text(function(d) { return d.kills; })
-    rowsEnter.append('td').text(function(d) { return d.assists; })
-    rowsEnter.append('td').text(function(d) {
-      return killDeathRatio(d.kills, d.deaths);
-    })
-    rowsEnter.append('td').text(function(d) {
-      return killAssistDeathRatio(d.kills, d.assists, d.deaths);
-    })
-    rowsEnter.append('td').text(function(d) { return d.score == 5 ? 'Win' : 'Loss'; })
-    rowsEnter.append('td').text(function(d) { return d.score; })
+    for (var i = 0; i < columns.length; i++) {
+      rowsEnter.append('td').text(dataFunctions[i]);
+    }
   }
 
   chart.data = function(value) {
     if (!arguments.length) return data;
     data = value;
+    return chart;
+  }
+
+  chart.columns = function(value) {
+    if (!arguments.length) return columns;
+    columns = value;
+    return chart;
+  }
+
+  chart.dataFunctions = function(value) {
+    if (!arguments.length) return dataFunctions;
+    dataFunctions = value;
     return chart;
   }
 

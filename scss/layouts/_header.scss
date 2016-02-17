@@ -3,7 +3,7 @@
 //////////////////////////////
 
 .header {
-  padding: 1em 0;
+  padding: 2em 0;
 
   &-logo,
   &-heading {
@@ -19,8 +19,6 @@
   }
 
   &-heading {
-    font-size: 40px;
-    font-weight: 700;
-    text-transform: uppercase;
+    margin-bottom: 0;
   }
 }

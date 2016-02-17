@@ -1,10 +1,14 @@
-@import 'vendor/resormalize';
+@import
+  'vendors/resormalize',
+  'vendors/shevy/shevy'
+;
 
 @import
   'globals/functions',
   'globals/mixins',
   'globals/variables',
-  'globals/tags'
+  'globals/tags',
+  'globals/typography'
 ;
 
 @import
@@ -14,10 +18,8 @@
 ;
 
 @import
+  'blocks/overview',
+  'blocks/full_stats',
   'blocks/lines',
   'blocks/pies'
 ;
-
-.display {
-  @include clearfix;
-}

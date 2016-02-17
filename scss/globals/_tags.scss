@@ -1,0 +1,21 @@
+//////////////////////////////
+// Tags
+//////////////////////////////
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: $f-poppins;
+  font-size: 100%;
+}
+
+body {
+  background: $c-crimson;
+  color: white;
+}
+

@@ -1,0 +1,26 @@
+//////////////////////////////
+// Header
+//////////////////////////////
+
+.header {
+  padding: 1em 0;
+
+  &-logo,
+  &-heading {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-logo {
+    fill: white;
+    width: 50px;
+    height: auto;
+    padding: 5px;
+  }
+
+  &-heading {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

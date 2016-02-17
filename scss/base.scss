@@ -1,12 +1,20 @@
-*,
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-}
+@import 'vendor/resormalize';
 
-body {
-  padding: 10px;
+@import
+  'globals/functions',
+  'globals/mixins',
+  'globals/variables',
+  'globals/tags'
+;
+
+@import
+  'layouts/header',
+  'layouts/footer',
+  'layouts/container'
+;
+
+.display {
+  @include clearfix;
 }
 
 table {
@@ -15,12 +23,18 @@ table {
   border-collapse: collapse;
 }
 
+thead {
+  background: darken($c-crimson, 15%);
+}
+
 td,
 th {
-  padding: 10px;
+  padding: 15px;
+  border: 1px solid rgba(white, .25);
 }
 
 th {
+  font-weight: bold;
   text-align: left;
 }
 

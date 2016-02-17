@@ -4,10 +4,38 @@
   <meta charset="UTF-8">
   <title>Crimson Doubles Stats</title>
   <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <h1>Crimson Doubles Stats</h1>
-  <div class="js-display"></div>
+  <header class="header">
+    <div class="container">
+      <svg class="header-logo" version="1.0" xmlns="http://www.w3.org/2000/svg" width="73" height="71" viewBox="0 0 73 71" preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(0.000000,71.000000) scale(0.100000,-0.100000)">
+          <path d="M210 643 c-26 -55 -30 -71 -21 -90 15 -33 15 -32 -22 -21 -29 9 -42 6 -103 -25 l-69 -35 74 -35 73 -34 60 26 c55 24 63 31 90 86 l30 60 -32 68 c-18 37 -36 67 -40 67 -5 0 -23 -30 -40 -67z"/>
+          <path d="M440 644 c-31 -66 -31 -66 -14 -109 21 -56 42 -78 106 -110 l52 -26 73 33 c40 18 72 36 73 39 0 3 -30 20 -67 38 -46 23 -75 31 -94 27 -27 -5 -28 -4 -23 23 4 20 -3 46 -25 89 -17 34 -35 62 -40 62 -5 0 -24 -30 -41 -66z"/>
+          <path d="M340 493 c-12 -21 -23 -50 -24 -65 0 -21 -5 -27 -17 -23 -17 6 -109 -33 -109 -46 0 -3 22 -17 49 -31 36 -18 55 -22 67 -15 14 8 16 6 11 -14 -7 -26 38 -114 53 -104 16 10 40 68 40 96 0 22 4 26 20 22 19 -5 110 35 110 47 0 13 -93 50 -111 45 -15 -5 -19 -1 -19 20 0 23 -34 105 -44 105 -2 0 -14 -17 -26 -37z"/>
+          <path d="M70 284 l-75 -36 75 -38 c70 -35 77 -37 102 -24 l27 14 -10 -30 c-9 -25 -6 -40 22 -100 17 -38 35 -70 39 -70 3 0 21 32 40 71 l33 71 -29 60 c-25 53 -35 63 -86 89 -32 16 -59 29 -60 29 -2 0 -37 -16 -78 -36z"/>
+          <path d="M520 291 c-48 -25 -59 -37 -84 -89 l-28 -59 33 -72 c18 -39 36 -71 39 -71 3 0 21 31 39 68 23 50 30 76 26 95 -7 25 -5 27 22 21 22 -4 48 3 99 29 l68 35 -72 36 c-39 20 -75 36 -79 36 -5 -1 -33 -14 -63 -29z"/>
+        </g>
+      </svg>
+      <h1 class="header-heading">Crimson Doubles Stats</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="display js-display"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      &copy;<span id="js-year">2016</span> Kyle Shevlin. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    var year = document.getElementById('js-year');
+    year.textContent = new Date().getFullYear();
+  </script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.12/d3.min.js"></script>
   <script src="js/helpers.js"></script>

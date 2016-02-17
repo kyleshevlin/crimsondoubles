@@ -427,6 +427,31 @@ body {
   color: white;
 }
 
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+thead {
+  background: rgba(35, 0, 1, 0.75);
+}
+
+td,
+th {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+}
+
+td {
+  font-size: .75rem;
+}
+
 .header {
   padding: 1em 0;
 }
@@ -456,104 +481,42 @@ body {
   margin: 0 auto;
 }
 
+.lines-wrap {
+  float: left;
+}
+.lines-x_axis path, .lines-y_axis path {
+  fill: none;
+  stroke: white;
+}
+.lines-x_axis line, .lines-y_axis line {
+  stroke: white;
+}
+.lines-graph-line {
+  fill: none;
+  stroke: white;
+  stroke-width: 3px;
+  opacity: .25;
+  -webkit-transition: opacity .3s ease;
+          transition: opacity .3s ease;
+}
+.lines-graph-dot {
+  fill: white;
+}
+.lines-graph text {
+  fill: white;
+  font-size: .75rem;
+}
+
+.pie text {
+  fill: white;
+  font-size: .75rem;
+}
+.pie-wrap {
+  float: left;
+}
+
 .display:after {
   content: "";
   display: table;
   clear: both;
-}
-
-table {
-  width: 100%;
-  margin-bottom: 30px;
-  border-collapse: collapse;
-}
-
-thead {
-  background: #230001;
-}
-
-td,
-th {
-  padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-th {
-  font-weight: bold;
-  text-align: left;
-}
-
-.pie-wrap,
-.lines-wrap {
-  float: left;
-}
-
-.lines-x_axis path,
-.lines-y_axis path {
-  fill: none;
-  stroke: #000;
-}
-
-.lines-x_axis line,
-.lines-y_axis line {
-  stroke: #000;
-}
-
-.kills-lines-group .graph-line,
-.assists-lines-group .graph-line,
-.deaths-lines-group .graph-line,
-.kill_deaths-lines-group .graph-line,
-.kill_assists_deaths-lines-group .graph-line,
-.scores-lines-group .graph-line {
-  fill: none;
-  stroke-width: 3px;
-  opacity: .25;
-}
-
-.kills-lines-group .graph-line {
-  stroke: blue;
-}
-
-.kills-lines-group .graph-dot {
-  fill: blue;
-}
-
-.assists-lines-group .graph-line {
-  stroke: orange;
-}
-
-.assists-lines-group .graph-dot {
-  fill: orange;
-}
-
-.deaths-lines-group .graph-line {
-  stroke: red;
-}
-
-.deaths-lines-group .graph-dot {
-  fill: red;
-}
-
-.kill_deaths-lines-group .graph-line {
-  stroke: green;
-}
-
-.kill_deaths-lines-group .graph-dot {
-  fill: green;
-}
-
-.kill_assists_deaths-lines-group .graph-line {
-  stroke: purple;
-}
-
-.kill_assists_deaths-lines-group .graph-dot {
-  fill: purple;
-}
-
-.scores-lines-group .graph-line {
-  stroke: teal;
-}
-
-.scores-lines-group .graph-dot {
-  fill: teal;
 }

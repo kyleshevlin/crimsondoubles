@@ -13,102 +13,11 @@
   'layouts/container'
 ;
 
+@import
+  'blocks/lines',
+  'blocks/pies'
+;
+
 .display {
   @include clearfix;
-}
-
-table {
-  width: 100%;
-  margin-bottom: 30px;
-  border-collapse: collapse;
-}
-
-thead {
-  background: darken($c-crimson, 15%);
-}
-
-td,
-th {
-  padding: 15px;
-  border: 1px solid rgba(white, .25);
-}
-
-th {
-  font-weight: bold;
-  text-align: left;
-}
-
-.pie-wrap,
-.lines-wrap {
-  float: left;
-}
-
-.lines-x_axis path,
-.lines-y_axis path {
-  fill: none;
-  stroke: #000;
-}
-
-.lines-x_axis line,
-.lines-y_axis line {
-  stroke: #000;
-}
-
-.kills-lines-group .graph-line,
-.assists-lines-group .graph-line,
-.deaths-lines-group .graph-line,
-.kill_deaths-lines-group .graph-line,
-.kill_assists_deaths-lines-group .graph-line,
-.scores-lines-group .graph-line {
-  fill: none;
-  stroke-width: 3px;
-  opacity: .25;
-}
-
-.kills-lines-group .graph-line {
-  stroke: blue;
-}
-
-.kills-lines-group .graph-dot {
-  fill: blue;
-}
-
-.assists-lines-group .graph-line {
-  stroke: orange;
-}
-
-.assists-lines-group .graph-dot {
-  fill: orange;
-}
-
-.deaths-lines-group .graph-line {
-  stroke: red;
-}
-
-.deaths-lines-group .graph-dot {
-  fill: red;
-}
-
-.kill_deaths-lines-group .graph-line {
-  stroke: green;
-}
-
-.kill_deaths-lines-group .graph-dot {
-  fill: green;
-}
-
-.kill_assists_deaths-lines-group .graph-line {
-  stroke: purple;
-}
-
-.kill_assists_deaths-lines-group .graph-dot {
-  fill: purple;
-}
-
-.scores-lines-group .graph-line {
-  stroke: teal;
-}
-
-.scores-lines-group .graph-dot {
-  fill: teal;
 }

@@ -19,3 +19,27 @@ body {
   color: white;
 }
 
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+thead {
+  background: rgba(darken($c-crimson, 15%), .75);
+}
+
+td,
+th {
+  padding: 15px;
+  border: 1px solid rgba(white, .15);
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+}
+
+td {
+  font-size: .75rem;
+}

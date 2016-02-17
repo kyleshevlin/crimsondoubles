@@ -9,35 +9,35 @@ d3.json('matches.json', function(err, matches) {
   table(tdiv);
 
   // Wins Losses Pie Chart
-  var winsLossesGroup = display.append('div').classed('pie-wrap win_loss_pie-group', true);
+  var winsLossesGroup = display.append('div').classed('pie-wrap', true);
   var winsLossesPie = d3.chart.pie()
     .data(_winsLosses(data))
     .title('Wins & Losses')
   winsLossesPie(winsLossesGroup);
 
   // Matches Per Class Pie Chart
-  var matchesPerClassGroup = display.append('div').classed('pie-wrap matches_per_class_pie-group', true)
+  var matchesPerClassGroup = display.append('div').classed('pie-wrap', true)
   var matchesPerClassPie = d3.chart.pie()
     .data(_matchesPerClass(data))
     .title('Matches/Class')
   matchesPerClassPie(matchesPerClassGroup);
 
   // Matches Per Partner Pie Chart
-  var matchesPerPartnerGroup = display.append('div').classed('pie-wrap matches_per_partner_pie-group', true);
+  var matchesPerPartnerGroup = display.append('div').classed('pie-wrap', true);
   var matchesPerPartnerPie = d3.chart.pie()
     .data(_matchesPerPartner(data))
     .title('Matches/Partner')
   matchesPerPartnerPie(matchesPerPartnerGroup);
 
   // Matches Per Map Pie chart
-  var matchesPerMapGroup = display.append('div').classed('pie-wrap matches_per_map_pie-group', true);
+  var matchesPerMapGroup = display.append('div').classed('pie-wrap', true);
   var matchesPerMapPie = d3.chart.pie()
     .data(_matchesPerMap(data))
     .title('Matches/Map')
   matchesPerMapPie(matchesPerMapGroup);
 
   // Kills Line Chart
-  var killsGroup = display.append('div').classed('lines-wrap kills-lines-group', true);
+  var killsGroup = display.append('div').classed('lines-wrap', true);
   var killLines = d3.chart.lines()
     .data(_kills(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
@@ -45,7 +45,7 @@ d3.json('matches.json', function(err, matches) {
   killLines(killsGroup);
 
   // Assists Line Chart
-  var assistsGroup = display.append('div').classed('lines-wrap assists-lines-group', true);
+  var assistsGroup = display.append('div').classed('lines-wrap', true);
   var assistsLines = d3.chart.lines()
     .data(_assists(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
@@ -53,7 +53,7 @@ d3.json('matches.json', function(err, matches) {
   assistsLines(assistsGroup);
 
   // Deaths Line Chart
-  var deathsGroup = display.append('div').classed('lines-wrap deaths-lines-group', true);
+  var deathsGroup = display.append('div').classed('lines-wrap', true);
   var deathsLines = d3.chart.lines()
     .data(_deaths(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
@@ -61,7 +61,7 @@ d3.json('matches.json', function(err, matches) {
   deathsLines(deathsGroup);
 
   // Kill/Death Ratio Line Chart
-  var killDeathsGroup = display.append('div').classed('lines-wrap kill_deaths-lines-group', true);
+  var killDeathsGroup = display.append('div').classed('lines-wrap', true);
   var killDeathsLines = d3.chart.lines()
     .data(_killDeathRatio(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
@@ -69,7 +69,7 @@ d3.json('matches.json', function(err, matches) {
   killDeathsLines(killDeathsGroup);
 
   // Kill+Assists/Death Ratio Line Chart
-  var killAssistDeathsGroup = display.append('div').classed('lines-wrap kill_assists_deaths-lines-group', true);
+  var killAssistDeathsGroup = display.append('div').classed('lines-wrap', true);
   var killAssistDeathsLines = d3.chart.lines()
     .data(_killAssistDeathRatio(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
@@ -77,7 +77,7 @@ d3.json('matches.json', function(err, matches) {
   killAssistDeathsLines(killAssistDeathsGroup);
 
   // Scores
-  var scoresGroup = display.append('div').classed('lines-wrap scores-lines-group', true)
+  var scoresGroup = display.append('div').classed('lines-wrap', true)
   var scoresLines = d3.chart.lines()
     .data(_scores(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))

@@ -15,11 +15,11 @@ d3.chart.lines = function() {
 
   function chart(container) {
     g = container;
-    svg = g.append('svg')
+    svg = g.append('svg').classed('lines', true)
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
 
-    graph = svg.append('g').classed('graph', true)
+    graph = svg.append('g').classed('lines-graph', true)
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
     graph.append('g').classed('lines-x_axis', true)
@@ -57,7 +57,7 @@ d3.chart.lines = function() {
       .y(function(d) { return yScale(d.y); })
 
     graph
-      .append('path').classed('graph-line', true)
+      .append('path').classed('lines-graph-line', true)
       .attr('d', line(data))
       .on('mouseover', function(d) {
         d3.select(this).style('opacity', 1);
@@ -69,7 +69,7 @@ d3.chart.lines = function() {
     graph.selectAll('graph-dot')
       .data(data)
       .enter()
-      .append('circle').classed('graph-dot', true)
+      .append('circle').classed('lines-graph-dot', true)
       .attr({
         r: 3.5,
         cx: function(d,i) { return xScale(d.x); },

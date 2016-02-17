@@ -1,0 +1,43 @@
+//////////////////////////////
+// Lines
+//////////////////////////////
+
+.lines {
+
+  &-wrap {
+    float: left;
+  }
+
+  &-x_axis,
+  &-y_axis {
+
+    path {
+      fill: none;
+      stroke: white;
+    }
+
+    line {
+      stroke: white;
+    }
+  }
+
+  &-graph {
+
+    &-line {
+      fill: none;
+      stroke: white;
+      stroke-width: 3px;
+      opacity: .25;
+      transition: opacity .3s ease;
+    }
+
+    &-dot {
+      fill: white;
+    }
+
+    text {
+      fill: white;
+      font-size: .75rem;
+    }
+  }
+}

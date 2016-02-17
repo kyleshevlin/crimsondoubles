@@ -26,11 +26,11 @@ d3.chart.pie = function() {
   chart.update = update;
 
   function update() {
-    var svg = g.append('svg')
+    var svg = g.append('svg').classed('pie', true)
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
 
-    pie = svg.append('g').classed('pie', true)
+    pie = svg.append('g').classed('pie-graph', true)
       .attr({
         width: pieWidth,
         height: pieHeight,
@@ -47,10 +47,10 @@ d3.chart.pie = function() {
       .outerRadius(outerRadius)
 
     // Set up groups
-    var arcs = pie.selectAll("g.arc")
+    var arcs = pie.selectAll("g.pie-graph-arc")
       .data(layout(data))
       .enter()
-      .append("g").classed('arc', true)
+      .append("g").classed('pie-graph-arc', true)
       .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
 
     // Draw arc paths
@@ -70,10 +70,10 @@ d3.chart.pie = function() {
         return d.value;
       });
 
-    var legend = svg.selectAll('.legend')
+    var legend = svg.selectAll('.pie-legend')
       .data(colorScale.domain())
       .enter()
-      .append('g').classed('legend', true)
+      .append('g').classed('pie-legend', true)
       .attr('transform', function(d,i) {
         var offset = legendRectSize + legendSpacing;
         return 'translate(' + (pieWidth + margin.left + margin.right) + ',' + ((offset * i) + margin.top) + ')';

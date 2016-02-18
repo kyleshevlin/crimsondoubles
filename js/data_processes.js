@@ -197,3 +197,36 @@ function _scores(data) {
 
   return scores;
 }
+
+// Overview Table Dataset
+function _overviewTable(data) {
+  var overview = [],
+      totalGames = 0,
+      totalKills = 0,
+      totalAssists = 0
+      totalDeaths = 0,
+      totalWins = 0;
+
+  data.forEach(function(d) {
+    totalGames++;
+    totalKills += d.kills;
+    totalAssists += d.assists;
+    totalDeaths += d.deaths;
+    if ( wasWin(d.score) ) { totalWins++; }
+  });
+
+  overview.push({
+    totalGames: totalGames,
+    totalKills: totalKills,
+    totalAssists: totalAssists,
+    totalDeaths: totalDeaths,
+    overallKD: killDeathRatio(totalKills, totalDeaths),
+    overallKAD: killAssistDeathRatio(totalKills, totalAssists, totalDeaths),
+    killsPerGame: killGameRatio(totalKills, totalGames),
+    assistsPerGame: assistGameRatio(totalAssists, totalGames),
+    deathsPerGame: deathGameRatio(totalDeaths, totalGames),
+    winPercentage: winPercentage(totalWins, totalGames)
+  });
+
+  return overview;
+}

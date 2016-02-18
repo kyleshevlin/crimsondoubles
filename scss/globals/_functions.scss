@@ -1,3 +1,13 @@
 //////////////////////////////
 // Functions
 //////////////////////////////
+
+@function white($opacity: 1) {
+  $c-white: #fff !default;
+  @return rgba($c-white, $opacity);
+}
+
+@function black($opacity: 1) {
+  $c-black: #000 !default;
+  @return rgba($c-black, $opacity);
+}

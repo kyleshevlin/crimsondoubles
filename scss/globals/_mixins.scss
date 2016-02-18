@@ -2,6 +2,19 @@
 // Mixins
 //////////////////////////////
 
+// Breakpoint
+//////////////////////////////
+@mixin bp($bp, $bp_map: $breakpoints) {
+  @if map-has-key($bp_map, $bp) {
+    @media #{inspect(map-get($bp_map, $bp))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value with #{$bp} could be retrieved from `$breakpoints`. "
+        + 'Please make sure it is defined in the `$breakpoints` map.';
+  }
+}
+
 // Clearfix
 //////////////////////////////
 @mixin clearfix {

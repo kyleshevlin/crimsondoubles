@@ -1,0 +1,96 @@
+//////////////////////////////
+// Tables
+//////////////////////////////
+
+.table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+
+  @include bp(alpha) {
+    display: table;
+  }
+
+  &-head {
+    display: none;
+
+    @include bp(alpha) {
+      display: table-header-group;
+      background: rgba(darken($c-crimson, 15%), .75);
+    }
+
+    &-row {
+
+      @include bp(alpha) {
+        display: table-row;
+      }
+    }
+
+    &-th {
+      font-weight: bold;
+      text-align: left;
+      padding: 15px 0;
+
+      @include bp(alpha) {
+        padding: 15px;
+        border: 1px solid white(.15);
+        display: table-cell;
+      }
+    }
+  }
+
+  &-body {
+
+    @include bp(alpha) {
+      display: table-row-group;
+    }
+
+    &-row {
+      padding: 0 20px;
+      margin-bottom: 20px;
+
+      @include bp(alpha) {
+        display: table-row;
+        padding: 0;
+        margin: 0;
+      }
+
+      &:nth-child(even) {
+        background: rgba(darken($c-crimson, 5%), .75);
+      }
+    }
+
+    &-td {
+      @include clearfix;
+      padding: 15px 0;
+
+      @include bp(alpha) {
+        display: table-cell;
+        padding: 15px;
+        border: 1px solid white(.15);
+      }
+
+      &-faux_heading {
+        float: left;
+        width: 35%;
+        margin-right: 5%;
+        text-transform: uppercase;
+
+        @include bp(alpha) {
+          display: none;
+        }
+      }
+
+      &-content {
+        float: right;
+        width: 60%;
+        font-size: .75rem;
+
+        @include bp(alpha) {
+          float: none;
+          width: auto;
+        }
+      }
+    }
+  }
+}

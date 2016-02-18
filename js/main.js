@@ -7,9 +7,20 @@ d3.json('matches.json', function(err, matches) {
   var overviewDiv = overviewDisplay.append('div').classed('overview-table-wrap', true);
   var overviewTable = d3.chart.table();
   overviewTable
-    .data(data)
-    .columns([])
-    .dataFunctions({})
+    .data(_overviewTable(data))
+    .columns(['Total Games', 'Total Kills', 'Total Assists', 'Total Deaths', 'Overall K/D', 'Overall Ka/D', 'Overall K/G', 'Overall A/G', 'Overall D/G', 'Win %'])
+    .returns({
+      0: function(d) { return d.totalGames; },
+      1: function(d) { return d.totalKills; },
+      2: function(d) { return d.totalAssists; },
+      3: function(d) { return d.totalDeaths; },
+      4: function(d) { return d.overallKD.toFixed(2); },
+      5: function(d) { return d.overallKAD.toFixed(2); },
+      6: function(d) { return d.killsPerGame.toFixed(2); },
+      7: function(d) { return d.assistsPerGame.toFixed(2); },
+      8: function(d) { return d.deathsPerGame.toFixed(2); },
+      9: function(d) { return d.winPercentage; }
+    })
   overviewTable(overviewDiv);
 
   // Full Stats Table
@@ -18,7 +29,7 @@ d3.json('matches.json', function(err, matches) {
   fullStatsTable
     .data(data)
     .columns(['Class','Map','Partner','Kills','Assists','K/D','Ka/D','W/L','Score'])
-    .dataFunctions({
+    .returns({
       0: function(d) { return d.class; },
       1: function(d) { return d.map; },
       2: function(d) { return d.partner; },
@@ -64,7 +75,9 @@ d3.json('matches.json', function(err, matches) {
   var killLines = d3.chart.lines()
     .data(_kills(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
-    .yExtent(d3.extent(data, function(d) { return d.kills; }))
+    .xLabel('Games')
+    .yExtent([0, d3.max(data, function(d) { return d.kills; })])
+    .yLabel('Kills')
   killLines(killsGroup);
 
   // Assists Line Chart
@@ -72,7 +85,9 @@ d3.json('matches.json', function(err, matches) {
   var assistsLines = d3.chart.lines()
     .data(_assists(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
+    .xLabel('Games')
     .yExtent(d3.extent(data, function(d) { return d.assists; }))
+    .yLabel('Assists')
   assistsLines(assistsGroup);
 
   // Deaths Line Chart
@@ -80,7 +95,9 @@ d3.json('matches.json', function(err, matches) {
   var deathsLines = d3.chart.lines()
     .data(_deaths(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
+    .xLabel('Games')
     .yExtent(d3.extent(data, function(d) { return d.deaths; }))
+    .yLabel('Deaths')
   deathsLines(deathsGroup);
 
   // Kill/Death Ratio Line Chart
@@ -88,7 +105,9 @@ d3.json('matches.json', function(err, matches) {
   var killDeathsLines = d3.chart.lines()
     .data(_killDeathRatio(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
+    .xLabel('Games')
     .yExtent(d3.extent(data, function(d) { return killDeathRatio(d.kills, d.deaths); }))
+    .yLabel('Kills per Death')
   killDeathsLines(killDeathsGroup);
 
   // Kill+Assists/Death Ratio Line Chart
@@ -96,7 +115,9 @@ d3.json('matches.json', function(err, matches) {
   var killAssistDeathsLines = d3.chart.lines()
     .data(_killAssistDeathRatio(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
+    .xLabel('Games')
     .yExtent(d3.extent(data, function(d) { return killAssistDeathRatio(d.kills, d.assists, d.deaths); }))
+    .yLabel('Kills + Assists per Death')
   killAssistDeathsLines(killAssistDeathsGroup);
 
   // Scores
@@ -104,6 +125,8 @@ d3.json('matches.json', function(err, matches) {
   var scoresLines = d3.chart.lines()
     .data(_scores(data))
     .xExtent(d3.extent(data, function(d) { return d.id; }))
+    .xLabel('Games')
     .yExtent(d3.extent(data, function(d) { return d.score; }))
+    .yLabel('Score')
   scoresLines(scoresGroup);
 });

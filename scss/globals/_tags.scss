@@ -12,6 +12,10 @@ html {
   box-sizing: border-box;
   font-family: $f-poppins;
   font-size: 100%;
+
+  @include bp(bravo) {
+    font-size: 125%;
+  }
 }
 
 body {

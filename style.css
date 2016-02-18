@@ -421,6 +421,11 @@ html {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
   font-size: 100%;
 }
+@media (min-width: 1300px) {
+  html {
+    font-size: 125%;
+  }
+}
 
 body {
   background: #6f0003;
